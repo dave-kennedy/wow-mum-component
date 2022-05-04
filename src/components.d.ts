@@ -7,20 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Message } from "wow-mum-look-no-hands";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface WowMumLoader {
         "loadMessagesFromString": (json: string) => Promise<void>;
         "loadMessagesFromUrl": (url: string) => Promise<void>;
@@ -31,12 +17,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLWowMumLoaderElement extends Components.WowMumLoader, HTMLStencilElement {
     }
     var HTMLWowMumLoaderElement: {
@@ -44,31 +24,15 @@ declare global {
         new (): HTMLWowMumLoaderElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "wow-mum-loader": HTMLWowMumLoaderElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface WowMumLoader {
         "messageData"?: string;
         "messageDataUrl"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "wow-mum-loader": WowMumLoader;
     }
 }
@@ -76,7 +40,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "wow-mum-loader": LocalJSX.WowMumLoader & JSXBase.HTMLAttributes<HTMLWowMumLoaderElement>;
         }
     }
