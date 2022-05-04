@@ -1,0 +1,66 @@
+[
+  {
+    "message": "🚀 Starting big launch..."
+  },
+  {
+    "message": "🔎 Sensing deployment environment..."
+  },
+  {
+    "delayInMS": 1000,
+    "logLevel": "warn",
+    "message": "❗ Encountered bit-anomaly in tetrasphere of main megaflop instance. Circumvention progress started..."
+  },
+  {
+    "delayInMS": 2000,
+    "message": "Bit-anomaly successfully circumvented"
+  },
+  {
+    "message": "🔥 Warming up incoming API ports..."
+  },
+  {
+    "message": "🔥 Warming up outgoing API ports..."
+  },
+  {
+    "message": "😎 Cooling down overheated main control module..."
+  },
+  {
+    "message": "🏋 Defragmenting all existing bits & bytes to ensure high performance lift-off..."
+  },
+  {
+    "delayInMS": 2000,
+    "message": "🔒 Injecting HSS (heightened security system)..."
+  },
+  {
+    "message": "✨ Ensuring no dust particles are inside the main frame..."
+  },
+  {
+    "message": "👀 Tentatively eyeing launch() function..."
+  },
+  {
+    "message": "Send 'start' signal to launch pad. Starting countdown..."
+  },
+  {
+    "delayInMS": 1000,
+    "message": "Countdown: 5"
+  },
+  {
+    "delayInMS": 1000,
+    "message": "Countdown: 4"
+  },
+  {
+    "delayInMS": 1000,
+    "message": "Countdown: 3"
+  },
+  {
+    "delayInMS": 1000,
+    "message": "Countdown: 2"
+  },
+  {
+    "delayInMS": 1000,
+    "message": "Countdown: 1"
+  },
+  {
+    "delayInMS": 1000,
+    "message": "🚀 Application successfully started"
+  }
+]

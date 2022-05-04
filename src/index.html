@@ -9,6 +9,58 @@
     <script nomodule src="/build/wow-mum-loader.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <!-- Load the messages from a string with the message-data attribute -->
+    <!-- Make sure to use single quotes around the value and escape backslashes inside -->
+    <!--
+    <wow-mum-loader
+      message-data='[
+        {
+          "logLevel": "warn",
+          "message": "💾 Defragment Windows 95 C:\\ drive. This might take a while..."
+        },
+        {
+          "delayInMS": 1000,
+          "logLevel": "error",
+          "message": "🙈 Discovered year 2020. Aborting unnecessary Windows 95 operations..."
+        },
+        {
+          "delayInMS": 2000,
+          "message": "⚙️ Processing super-vortex decision algorithm..."
+        }
+      ]' />
+    -->
+
+    <!-- Or load the messages from a URL with the message-data-url attribute -->
+    <!-- Make sure the route is accessible from the domain of the hosting page -->
+    <wow-mum-loader message-data-url="messages.json" />
+
+    <!-- Or set the messages directly inside a script tag -->
+    <!--
+    <wow-mum-loader />
+
+    <script>
+      (async () => {
+        await customElements.whenDefined('wow-mum-loader');
+        const loader = document.querySelector('wow-mum-loader');
+
+        loader.setMessages([
+          {
+            'logLevel': 'warn',
+            'message': '💾 Defragment Windows 95 C:\ drive. This might take a while...'
+          },
+          {
+            'delayInMS': 1000,
+            'logLevel': 'error',
+            'message': '🙈 Discovered year 2020. Aborting unnecessary Windows 95 operations...'
+          },
+          {
+            'delayInMS': 2000,
+            'message': '⚙️ Processing super-vortex decision algorithm...'
+          }
+        ]);
+      })();
+    </script>
+    -->
   </body>
 </html>
+

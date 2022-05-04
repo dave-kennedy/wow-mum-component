@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  font-family: monospace;
+}
+
+.debug {
+  color: gray;
+}
+
+.info {
+  color: green;
+}
+
+.warn {
+  color: orange;
+}
+
+.error {
+  color: red;
+}
+

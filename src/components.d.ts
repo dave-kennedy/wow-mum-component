@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Message } from "wow-mum-look-no-hands";
 export namespace Components {
     interface MyComponent {
         /**
@@ -20,6 +21,14 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface WowMumLoader {
+        "loadMessagesFromString": (json: string) => Promise<void>;
+        "loadMessagesFromUrl": (url: string) => Promise<void>;
+        "messageData": string;
+        "messageDataUrl": string;
+        "setMessages": (messages: Message[]) => Promise<void>;
+        "showtime": () => Promise<void>;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +37,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLWowMumLoaderElement extends Components.WowMumLoader, HTMLStencilElement {
+    }
+    var HTMLWowMumLoaderElement: {
+        prototype: HTMLWowMumLoaderElement;
+        new (): HTMLWowMumLoaderElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "wow-mum-loader": HTMLWowMumLoaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +63,13 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface WowMumLoader {
+        "messageData"?: string;
+        "messageDataUrl"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "wow-mum-loader": WowMumLoader;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +77,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "wow-mum-loader": LocalJSX.WowMumLoader & JSXBase.HTMLAttributes<HTMLWowMumLoaderElement>;
         }
     }
 }
