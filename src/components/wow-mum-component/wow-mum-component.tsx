@@ -3,10 +3,10 @@ import { Message, Theatre } from 'wow-mum-look-no-hands';
 
 @Component({
   shadow: true,
-  styleUrl: 'wow-mum-loader.css',
-  tag: 'wow-mum-loader',
+  styleUrl: 'wow-mum-component.css',
+  tag: 'wow-mum-component',
 })
-export class WowMumLoader {
+export class WowMumComponent {
   messages: Message[] = [];
 
   @Prop() messageData: string;

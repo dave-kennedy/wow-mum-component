@@ -2,24 +2,24 @@ import { newE2EPage } from '@stencil/core/testing';
 
 test('render with defaults', async () => {
   const page = await newE2EPage({
-    html: '<wow-mum-loader />',
+    html: '<wow-mum-component />',
   });
 
-  const innerDiv = await page.find('wow-mum-loader >>> div');
+  const innerDiv = await page.find('wow-mum-component >>> div');
   expect(innerDiv.textContent).toEqual('Loading...');
 });
 
 test('render with messageData', async () => {
   const page = await newE2EPage({
     html: `
-      <wow-mum-loader message-data='[
+      <wow-mum-component message-data='[
         {"message": "Hello!"},
         {"delayInMS": 500, "logLevel": "error", "message": "Goodbye!"}
       ]' />
     `,
   });
 
-  const innerDiv = await page.find('wow-mum-loader >>> div');
+  const innerDiv = await page.find('wow-mum-component >>> div');
   expect(innerDiv.textContent).toEqual('Loading...');
 
   await page.waitForTimeout(250);
@@ -39,10 +39,10 @@ test('render with messageData', async () => {
 
 test('render with messageDataUrl', async () => {
   const page = await newE2EPage({
-    html: '<wow-mum-loader message-data-url="http://localhost:3342/messages.json" />',
+    html: '<wow-mum-component message-data-url="http://localhost:3342/messages.json" />',
   });
 
-  const innerDiv = await page.find('wow-mum-loader >>> div');
+  const innerDiv = await page.find('wow-mum-component >>> div');
   expect(innerDiv.textContent).toEqual('Loading...');
 
   await page.waitForTimeout(250);
@@ -69,14 +69,14 @@ test('render with messageDataUrl', async () => {
 
 test('render with setMessages', async () => {
   const page = await newE2EPage({
-    html: '<wow-mum-loader />',
+    html: '<wow-mum-component />',
   });
 
-  const innerDiv = await page.find('wow-mum-loader >>> div');
+  const innerDiv = await page.find('wow-mum-component >>> div');
   expect(innerDiv.textContent).toEqual('Loading...');
 
-  await page.$eval('wow-mum-loader', loader => {
-    loader.setMessages([
+  await page.$eval('wow-mum-component', component => {
+    component.setMessages([
       { message: 'Salut !' },
       { delayInMS: 500, logLevel: 'error', message: 'Au revoir !' }
     ]);

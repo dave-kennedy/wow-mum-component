@@ -1,13 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { Theatre } from 'wow-mum-look-no-hands';
-import { WowMumLoader } from './wow-mum-loader';
+import { WowMumComponent } from './wow-mum-component';
 
 beforeEach(() => {
   jest.resetAllMocks();
 });
 
 test('componentWillLoad calls loadMessagesFromString', () => {
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.loadMessagesFromString = jest.fn();
   component.loadMessagesFromUrl = jest.fn();
   component.messageData = 'asdf';
@@ -19,7 +19,7 @@ test('componentWillLoad calls loadMessagesFromString', () => {
 });
 
 test('componentWillLoad calls loadMessagesFromUrl', () => {
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.loadMessagesFromString = jest.fn();
   component.loadMessagesFromUrl = jest.fn();
   component.messageDataUrl = 'asdf';
@@ -31,7 +31,7 @@ test('componentWillLoad calls loadMessagesFromUrl', () => {
 });
 
 test('loadMessagesFromString returns nothing on error', async () => {
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.setMessages = jest.fn().mockReturnValue('foo');
 
   const actual = await component.loadMessagesFromString('bar');
@@ -46,7 +46,7 @@ test('loadMessagesFromString returns setMessages on success', async () => {
     { delayInMS: 500, logLevel: 'error', message: 'Goodbye!' }
   ];
 
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.setMessages = jest.fn().mockReturnValue('foo');
 
   const actual = await component.loadMessagesFromString(JSON.stringify(messages));
@@ -57,7 +57,7 @@ test('loadMessagesFromString returns setMessages on success', async () => {
 });
 
 test('loadMessagesFromUrl returns nothing on error', async () => {
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.setMessages = jest.fn().mockReturnValue('foo');
 
   jest
@@ -76,7 +76,7 @@ test('loadMessagesFromUrl returns setMessages on success', async () => {
     { delayInMS: 500, logLevel: 'error', message: '¡Adiós!' }
   ];
 
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.setMessages = jest.fn().mockReturnValue('foo');
 
   jest
@@ -99,7 +99,7 @@ test('setMessages returns showtime on success', async () => {
     { delayInMS: 500, logLevel: 'error', message: 'Arrivederci!' }
   ];
 
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.showtime = jest.fn().mockReturnValue('foo');
 
   const actual = await component.setMessages(messages);
@@ -124,7 +124,7 @@ test('showMessage when visibleLimit is 1', () => {
     { message: 'Au revoir !' }
   ];
 
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.messages = messages;
   component.visibleLimit = 1;
 
@@ -145,7 +145,7 @@ test('showMessage when visibleLimit is not set', () => {
     { message: 'Au revoir !' }
   ];
 
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.messages = messages;
 
   component.showMessage(messages[3]);
@@ -167,7 +167,7 @@ test('showMessage when visibleLimit is 3', () => {
     { message: 'Au revoir !' }
   ];
 
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
   component.messages = messages;
   component.visibleLimit = 3;
 
@@ -179,7 +179,7 @@ test('showMessage when visibleLimit is 3', () => {
 });
 
 test('showtime returns Theatre.showtime on success', async () => {
-  const component = new WowMumLoader();
+  const component = new WowMumComponent();
 
   jest
     .spyOn(Theatre.prototype, 'showtime')

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/wow-mum-loader.esm.js"></script>
-    <script nomodule src="/build/wow-mum-loader.js"></script>
+    <script type="module" src="/build/wow-mum-component.esm.js"></script>
+    <script nomodule src="/build/wow-mum-component.js"></script>
   </head>
   <body>
     <!-- Load the messages from a string with the message-data attribute -->
     <!-- Make sure to use single quotes around the value and escape backslashes inside -->
     <!--
-    <wow-mum-loader
+    <wow-mum-component
       message-data='[
         {
           "logLevel": "warn",
@@ -32,18 +32,18 @@
 
     <!-- Or load the messages from a URL with the message-data-url attribute -->
     <!-- Make sure the route is accessible from the domain of the hosting page -->
-    <wow-mum-loader message-data-url="messages.json" />
+    <wow-mum-component message-data-url="messages.json" />
 
     <!-- Or set the messages directly inside a script tag -->
     <!--
-    <wow-mum-loader />
+    <wow-mum-component />
 
     <script>
       (async () => {
-        await customElements.whenDefined('wow-mum-loader');
-        const loader = document.querySelector('wow-mum-loader');
+        await customElements.whenDefined('wow-mum-component');
+        const component = document.querySelector('wow-mum-component');
 
-        loader.setMessages([
+        component.setMessages([
           {
             'logLevel': 'warn',
             'message': '💾 Defragment Windows 95 C:\ drive. This might take a while...'

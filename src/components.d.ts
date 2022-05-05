@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Message } from "wow-mum-look-no-hands";
 export namespace Components {
-    interface WowMumLoader {
+    interface WowMumComponent {
         "loadMessagesFromString": (json: string) => Promise<void>;
         "loadMessagesFromUrl": (url: string) => Promise<void>;
         "messageData": string;
@@ -18,31 +18,31 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLWowMumLoaderElement extends Components.WowMumLoader, HTMLStencilElement {
+    interface HTMLWowMumComponentElement extends Components.WowMumComponent, HTMLStencilElement {
     }
-    var HTMLWowMumLoaderElement: {
-        prototype: HTMLWowMumLoaderElement;
-        new (): HTMLWowMumLoaderElement;
+    var HTMLWowMumComponentElement: {
+        prototype: HTMLWowMumComponentElement;
+        new (): HTMLWowMumComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "wow-mum-loader": HTMLWowMumLoaderElement;
+        "wow-mum-component": HTMLWowMumComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface WowMumLoader {
+    interface WowMumComponent {
         "messageData"?: string;
         "messageDataUrl"?: string;
         "visibleLimit"?: number;
     }
     interface IntrinsicElements {
-        "wow-mum-loader": WowMumLoader;
+        "wow-mum-component": WowMumComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "wow-mum-loader": LocalJSX.WowMumLoader & JSXBase.HTMLAttributes<HTMLWowMumLoaderElement>;
+            "wow-mum-component": LocalJSX.WowMumComponent & JSXBase.HTMLAttributes<HTMLWowMumComponentElement>;
         }
     }
 }

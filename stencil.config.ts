@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'wow-mum-loader',
+  namespace: 'wow-mum-component',
   outputTargets: [
     {
       type: 'dist',
