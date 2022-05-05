@@ -1,6 +1,6 @@
 {
   "name": "wow-mum-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Impressive start-up logs right in the browser",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
