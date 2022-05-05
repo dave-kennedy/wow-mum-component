@@ -28,10 +28,10 @@ To execute the tests, run:
 Add one of the following script tags to your page:
 
     <!-- ES module -->
-    <script type='module' src='https://unpkg.com/wow-mum-component@1.0.0/dist/wow-mum-component.esm.js'></script>
+    <script type='module' src='https://unpkg.com/wow-mum-component/dist/wow-mum-component.esm.js'></script>
 
     <!-- CommonJS module -->
-    <script type='module' src='https://unpkg.com/wow-mum-component@1.0.0/dist/wow-mum-component.js'></script>
+    <script type='module' src='https://unpkg.com/wow-mum-component/dist/wow-mum-component.js'></script>
 
 #### Option 2: install the package
 
@@ -112,10 +112,10 @@ Make sure the URL is accessible from the domain of the hosting page.
 Add one of the following statements to your script:
 
     // ES module
-    import { WowMumComponent } from 'https://unpkg.com/wow-mum-component@1.0.0/dist/wow-mum-component.esm.js';
+    import { WowMumComponent } from 'https://unpkg.com/wow-mum-component/dist/wow-mum-component.esm.js';
 
     // CommonJS module
-    const { WowMumComponent } = require('https://unpkg.com/wow-mum-component@1.0.0/dist/wow-mum-component.js');
+    const { WowMumComponent } = require('https://unpkg.com/wow-mum-component/dist/wow-mum-component.js');
 
 #### Option 2: install the package
 
