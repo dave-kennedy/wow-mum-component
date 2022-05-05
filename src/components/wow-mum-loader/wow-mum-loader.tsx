@@ -7,13 +7,15 @@ import { Message, Theatre } from 'wow-mum-look-no-hands';
   tag: 'wow-mum-loader',
 })
 export class WowMumLoader {
-  @State() currentMessage: Message;
+  messages: Message[] = [];
 
   @Prop() messageData: string;
 
   @Prop() messageDataUrl: string;
 
-  messages: Message[] = [];
+  @Prop() visibleLimit: number;
+
+  @State() visibleMessages: Message[];
 
   componentWillLoad() {
     if (this.messageData) {
@@ -53,12 +55,29 @@ export class WowMumLoader {
     return await this.showtime();
   }
 
+  showMessage(message: Message) {
+    if (this.visibleLimit == 1) {
+      this.visibleMessages = [message];
+      return;
+    }
+
+    const end = this.messages.indexOf(message) + 1;
+
+    if (!this.visibleLimit) {
+      this.visibleMessages = this.messages.slice(0, end);
+      return;
+    }
+
+    const start = Math.max(0, end - this.visibleLimit);
+    this.visibleMessages = this.messages.slice(start, end);
+  }
+
   @Method()
   async showtime(): Promise<void> {
     console.debug('showtime:', this.messages);
 
     const theatre = new Theatre({
-      logger: message => this.currentMessage = message,
+      logger: message => this.showMessage(message),
       messages: this.messages,
     });
 
@@ -66,13 +85,17 @@ export class WowMumLoader {
   }
 
   render() {
-    if (!this.currentMessage) {
+    if (!this.visibleMessages) {
       return <div>Loading...</div>;
     }
 
     return (
-      <div class={this.currentMessage.logLevel}>
-        {this.currentMessage.logLevel.toUpperCase()}: {this.currentMessage.message}
+      <div>
+        {this.visibleMessages.map(message =>
+          <div class={message.logLevel}>
+            {message.logLevel.toUpperCase()}: {message.message}
+          </div>
+        )}
       </div>
     );
   }

@@ -112,6 +112,72 @@ test('setMessages returns showtime on success', async () => {
   ]);
 });
 
+test('showMessage when visibleLimit is 1', () => {
+  const messages = [
+    { message: 'Hello!' },
+    { message: 'Goodbye!' },
+    { message: '¡Hola!' },
+    { message: '¡Adiós!' },
+    { message: 'Ciao!' },
+    { message: 'Arrivederci!' },
+    { message: 'Salut !' },
+    { message: 'Au revoir !' }
+  ];
+
+  const component = new WowMumLoader();
+  component.messages = messages;
+  component.visibleLimit = 1;
+
+  component.showMessage(messages[3]);
+
+  expect(component.visibleMessages).toEqual([messages[3]]);
+});
+
+test('showMessage when visibleLimit is not set', () => {
+  const messages = [
+    { message: 'Hello!' },
+    { message: 'Goodbye!' },
+    { message: '¡Hola!' },
+    { message: '¡Adiós!' },
+    { message: 'Ciao!' },
+    { message: 'Arrivederci!' },
+    { message: 'Salut !' },
+    { message: 'Au revoir !' }
+  ];
+
+  const component = new WowMumLoader();
+  component.messages = messages;
+
+  component.showMessage(messages[3]);
+
+  expect(component.visibleMessages).toEqual([
+    messages[0], messages[1], messages[2], messages[3]
+  ]);
+});
+
+test('showMessage when visibleLimit is 3', () => {
+  const messages = [
+    { message: 'Hello!' },
+    { message: 'Goodbye!' },
+    { message: '¡Hola!' },
+    { message: '¡Adiós!' },
+    { message: 'Ciao!' },
+    { message: 'Arrivederci!' },
+    { message: 'Salut !' },
+    { message: 'Au revoir !' }
+  ];
+
+  const component = new WowMumLoader();
+  component.messages = messages;
+  component.visibleLimit = 3;
+
+  component.showMessage(messages[5]);
+
+  expect(component.visibleMessages).toEqual([
+    messages[3], messages[4], messages[5]
+  ]);
+});
+
 test('showtime returns Theatre.showtime on success', async () => {
   const component = new WowMumLoader();
 

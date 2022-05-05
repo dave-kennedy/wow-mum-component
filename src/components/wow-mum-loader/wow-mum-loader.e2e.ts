@@ -25,14 +25,16 @@ test('render with messageData', async () => {
   await page.waitForTimeout(250);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('info');
-  expect(innerDiv.textContent).toEqual('INFO: Hello!');
+  expect(innerDiv.children.length).toEqual(1);
+  expect(innerDiv.children[0].className).toEqual('info');
+  expect(innerDiv.children[0].textContent).toEqual('INFO: Hello!');
 
   await page.waitForTimeout(500);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('error');
-  expect(innerDiv.textContent).toEqual('ERROR: Goodbye!');
+  expect(innerDiv.children.length).toEqual(2);
+  expect(innerDiv.children[1].className).toEqual('error');
+  expect(innerDiv.children[1].textContent).toEqual('ERROR: Goodbye!');
 });
 
 test('render with messageDataUrl', async () => {
@@ -46,20 +48,23 @@ test('render with messageDataUrl', async () => {
   await page.waitForTimeout(250);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('info');
-  expect(innerDiv.textContent).toEqual('INFO: 🚀 Starting big launch...');
+  expect(innerDiv.children.length).toEqual(1);
+  expect(innerDiv.children[0].className).toEqual('info');
+  expect(innerDiv.children[0].textContent).toEqual('INFO: 🚀 Starting big launch...');
 
   await page.waitForTimeout(250);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('info');
-  expect(innerDiv.textContent).toEqual('INFO: 🔎 Sensing deployment environment...');
+  expect(innerDiv.children.length).toEqual(2);
+  expect(innerDiv.children[1].className).toEqual('info');
+  expect(innerDiv.children[1].textContent).toEqual('INFO: 🔎 Sensing deployment environment...');
 
   await page.waitForTimeout(1000);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('warn');
-  expect(innerDiv.textContent).toContain('WARN: ❗ Encountered bit-anomaly in tetrasphere');
+  expect(innerDiv.children.length).toEqual(3);
+  expect(innerDiv.children[2].className).toEqual('warn');
+  expect(innerDiv.children[2].textContent).toContain('WARN: ❗ Encountered bit-anomaly');
 });
 
 test('render with setMessages', async () => {
@@ -80,13 +85,15 @@ test('render with setMessages', async () => {
   await page.waitForTimeout(250);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('info');
-  expect(innerDiv.textContent).toEqual('INFO: Salut !');
+  expect(innerDiv.children.length).toEqual(1);
+  expect(innerDiv.children[0].className).toEqual('info');
+  expect(innerDiv.children[0].textContent).toEqual('INFO: Salut !');
 
   await page.waitForTimeout(500);
   await page.waitForChanges();
 
-  expect(innerDiv.className).toEqual('error');
-  expect(innerDiv.textContent).toEqual('ERROR: Au revoir !');
+  expect(innerDiv.children.length).toEqual(2);
+  expect(innerDiv.children[1].className).toEqual('error');
+  expect(innerDiv.children[1].textContent).toEqual('ERROR: Au revoir !');
 });
 

@@ -14,6 +14,7 @@ export namespace Components {
         "messageDataUrl": string;
         "setMessages": (messages: Message[]) => Promise<void>;
         "showtime": () => Promise<void>;
+        "visibleLimit": number;
     }
 }
 declare global {
@@ -31,6 +32,7 @@ declare namespace LocalJSX {
     interface WowMumLoader {
         "messageData"?: string;
         "messageDataUrl"?: string;
+        "visibleLimit"?: number;
     }
     interface IntrinsicElements {
         "wow-mum-loader": WowMumLoader;
