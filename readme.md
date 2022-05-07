@@ -23,29 +23,17 @@ To execute the tests, run:
 
 ### Step 1: import the component
 
-#### Option 1: use the CDN
+Add the following script tag:
 
-Add one of the following script tags to your page:
+    <script type="module" src="https://unpkg.com/wow-mum-component"></script>
 
-    <!-- ES module -->
-    <script type='module' src='https://unpkg.com/wow-mum-component/dist/wow-mum-component.esm.js'></script>
-
-    <!-- CommonJS module -->
-    <script type='module' src='https://unpkg.com/wow-mum-component/dist/wow-mum-component.js'></script>
-
-#### Option 2: install the package
-
-Install the package:
+Or install the package:
 
     npm install wow-mum-component
 
-Then add one of the following script tags to your page:
+Then add the following script tag:
 
-    <!-- ES module -->
-    <script type='module' src='node_modules/wow-mum-component/dist/wow-mum-component.esm.js'></script>
-
-    <!-- CommonJS module -->
-    <script type='module' src='node_modules/wow-mum-component/dist/wow-mum-component.js'></script>
+    <script type="module" src="node_modules/wow-mum-component/dist/wow-mum-component/wow-mum-component.esm.js"></script>
 
 ### Step 2: create the component instance
 
@@ -100,85 +88,6 @@ Make sure to use single quotes around the value and escape any backslashes insid
 #### Option 3: load the messages from a JSON file
 
     <wow-mum-component message-data-url="messages.json" />
-
-Make sure the URL is accessible from the domain of the hosting page.
-
-## Using this component in another script
-
-### Step 1: import the component
-
-#### Option 1: use the CDN
-
-Add one of the following statements to your script:
-
-    // ES module
-    import { WowMumComponent } from 'https://unpkg.com/wow-mum-component/dist/wow-mum-component.esm.js';
-
-    // CommonJS module
-    const { WowMumComponent } = require('https://unpkg.com/wow-mum-component/dist/wow-mum-component.js');
-
-#### Option 2: install the package
-
-Install the package:
-
-    npm install wow-mum-component
-
-Then add one of the following statements to your script:
-
-    // ES module
-    import { WowMumComponent } from 'wow-mum-component';
-
-    // CommonJS module
-    const { WowMumComponent } = require('wow-mum-component');
-
-### Step 2: create the component instance
-
-#### Option 1: set the messages directly
-
-    const component = WowMumComponent();
-
-    component.setMessages([
-      {
-        'logLevel': 'warn',
-        'message': '💾 Defragment Windows 95 C:\ drive. This might take a while...'
-      },
-      {
-        'delayInMS': 1000,
-        'logLevel': 'error',
-        'message': '🙈 Discovered year 2020. Aborting unnecessary Windows 95 operations...'
-      },
-      {
-        'delayInMS': 2000,
-        'message': '⚙️ Processing super-vortex decision algorithm...'
-      }
-    ]);
-
-#### Option 2: load the messages from a JSON string
-
-    const component = WowMumComponent();
-
-    component.loadMessagesFromString('[
-      {
-        "logLevel": "warn",
-        "message": "💾 Defragment Windows 95 C:\\ drive. This might take a while..."
-      },
-      {
-        "delayInMS": 1000,
-        "logLevel": "error",
-        "message": "🙈 Discovered year 2020. Aborting unnecessary Windows 95 operations..."
-      },
-      {
-        "delayInMS": 2000,
-        "message": "⚙️ Processing super-vortex decision algorithm..."
-      }
-    ]');
-
-Make sure to escape any backslashes inside the value.
-
-#### Option 3: load the messages from a JSON file
-
-    const component = WowMumComponent();
-    component.loadMessagesFromUrl('messages.json');
 
 Make sure the URL is accessible from the domain of the hosting page.
 
